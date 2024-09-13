@@ -9,6 +9,7 @@ import { Logout } from './components/Logout/Logout';
 import * as bookService from './services/bookService';
 
 import './App.css';
+import { Catalog } from './components/Catalog/Catalog';
 
 function App() {
 
@@ -18,7 +19,6 @@ function App() {
         bookService.getAll()
             .then(result => {
                 setBooks(result);
-                console.log(result)
             })
     },[])
 
@@ -31,6 +31,7 @@ function App() {
                     <Route path='/login' element={<Login />} />
                     <Route path='/register' element={<Register />} />
                     <Route path='/logout' element={<Logout />} />
+                    <Route path='/catalog' element={<Catalog books={books}/>} />
                 </Routes>
             </div>
       < Footer />

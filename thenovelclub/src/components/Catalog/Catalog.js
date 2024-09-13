@@ -3,6 +3,7 @@ import { BookItem } from "./BookItem/BookItem"
 export const Catalog = ({
     books
 }) => {
+    
     return (
         <>
         {books.length > 0 && (
