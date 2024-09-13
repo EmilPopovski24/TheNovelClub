@@ -25,7 +25,7 @@ export const Register = () => {
 
             <button>Register</button>
             <div className="re-route">
-                <p>You already have an account... please go to the <Link to="/client-login">Login page</Link></p>
+                <p>You already have an account... please go to the <Link to="/login">Login page</Link></p>
             </div>
         </form>
         </>

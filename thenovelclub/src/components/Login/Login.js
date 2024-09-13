@@ -19,7 +19,7 @@ export const Login = () => {
 
             <button>Log In</button>
             <div className="re-route">
-                <p>You don't have an account... please go to the <Link to="/client-register">Register page</Link></p>
+                <p>You don't have an account... please go to the <Link to="/register">Register page</Link></p>
             </div>
         </form>
         </>
