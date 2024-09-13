@@ -9,8 +9,10 @@ export const request = async (method, url) => {
     } catch (error) {
         return {};
     }
-    
-
-
-    
 }
+
+export const get = request.bind(null, 'GET'); //url, method
+export const post = request.bind(null, 'POST');
+export const put = request.bind(null, 'PUT');
+export const patch = request.bind(null, 'PATCH');
+export const del = request.bind(null, 'DELETE');
