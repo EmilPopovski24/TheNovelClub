@@ -10,8 +10,14 @@ export const BookItem = ({
 }) => {
     return (
         <>
-        {Name}
-        {Author}
+        <div className="book-item">
+            {Name}
+            <p>Author: </p>{Author}
+            <img src={coverUrl} alt={Name} className="book-pic" />
+            <p>Published: </p> {Published}
+            <p>Genre: </p> {Genre}
+            <p>Description: </p> {description}  
+       </div>
         </>
     )
 }
