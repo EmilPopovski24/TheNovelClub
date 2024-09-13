@@ -2,6 +2,12 @@ import { request } from "./requester";
 
 const baseUrl = 'http://localhost:3030/jsonstore/books';
 
+export const getAll =async () => {
+    const result = await request('GET', baseUrl);
+    const books = Object.values(result)
+    return books;
+}
+
 
 // export const getAll = () => {
 //     fetch(baseUrl)
@@ -9,9 +15,3 @@ const baseUrl = 'http://localhost:3030/jsonstore/books';
 //         .then(result => console.log(result)
 //     )
 // }
-
-export const getAll =async () => {
-    const books = await request('GET', baseUrl);
-
-    return books;
-}

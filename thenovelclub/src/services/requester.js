@@ -3,7 +3,14 @@ export const request = async (method, url) => {
         method,
     })
 
-    const result = await response.json();
+    try {
+        const result = await response.json();
+        return result;
+    } catch (error) {
+        return {};
+    }
+    
 
-    return result;
+
+    
 }
