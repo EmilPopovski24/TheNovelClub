@@ -1,4 +1,4 @@
-
+import './BookItem.css';
 
 export const BookItem = ({
     Name,
@@ -16,7 +16,7 @@ export const BookItem = ({
             <img src={coverUrl} alt={Name} className="book-pic" />
             <p>Published: </p> {Published}
             <p>Genre: </p> {Genre}
-            <p>Description: </p> {description}  
+            <p>Description: </p> {description} 
        </div>
         </>
     )
