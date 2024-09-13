@@ -1,0 +1,10 @@
+.footer {
+    list-style-type: none;
+    margin: auto auto;
+    padding: 0;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    text-align: center;
+    background-color: #f09819;
+}
