@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useState } from "react";
 import * as bookService from '../../services/bookService';
 import { useEffect } from "react";
+import "./BookInfo.css";
 
 export const BookInfo = () => {
 
@@ -18,7 +19,16 @@ export const BookInfo = () => {
     return (
         <>
         <div className="bookInfo-page">
-            <img src={book.coverUrl} alt={book.name}/>            
+            <div className="book-pic">
+                <img src={book.coverUrl} alt={book.name}/>    
+            </div>
+            <ul className="book-details">
+                <li><h3>{book.name}</h3></li>
+                <li><h3>{book.author}</h3></li>
+                <li><h3>{book.published}</h3></li>
+                <li><h3>{book.genre}</h3></li>
+                <li><h3>{book.description}</h3></li>
+            </ul>
 
         </div>
         </>
