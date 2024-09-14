@@ -62,16 +62,19 @@ export const BookInfo = () => {
                 </form>
             </div>
             <div className="bookComments-div">
-                <h5>Comments:</h5>
+                
                 <ul className='bookComments-ul'>  
-                    {comments.map(x => (
+                    {comments.length > 0 && (comments.map(x => (
+                        <div>
+                        <h5>Comments:</h5>
                         <li className="comment">
                             <p>{x.username}: {x.comment}</p>
                         </li>
-                    ))}
+                        </div>
+                    )))}
                 </ul>
                 {comments.length === 0 && (
-                    <p className="no-comment">No</p>
+                    <p className="no-comment">No Comments</p>
                 )}
             </div>
         </div>
