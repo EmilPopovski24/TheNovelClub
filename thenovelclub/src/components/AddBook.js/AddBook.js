@@ -33,24 +33,24 @@ export const AddBook = ({
         <form className="addBook-form" onSubmit={onSubmit}>
             
             <label htmlFor="name">Name</label>
-            <input type="text" placeholder="Book name..." id="name" value={values.name} onChange={onChangeHandler} name="name" />
+            <input type="text" placeholder="Book name..." id="name" value={values.name} onChange={onChangeHandler} name="name" required/>
 
             <label htmlFor="author">Author</label>
-            <input type="text" placeholder="Author..." id="author" value={values.author} onChange={onChangeHandler} name="author"/>
+            <input type="text" placeholder="Author..." id="author" value={values.author} onChange={onChangeHandler} name="author" required/>
 
-            <label htmlFor="published">Published</label>
-            <input type="text" placeholder="Published on..." id="published" value={values.published} onChange={onChangeHandler} name="published"/>
+            <label htmlFor="published">Published on:</label>
+            <input type="text" placeholder="Published on..." id="published" value={values.published} onChange={onChangeHandler} name="published" required/>
 
             <label htmlFor="genre">Genre</label>
-            <input type="text" placeholder="Genre..." id="genre" value={values.genre} onChange={onChangeHandler} name="genre"/>
+            <input type="text" placeholder="Genre..." id="genre" value={values.genre} onChange={onChangeHandler} name="genre" required/>
 
             <label htmlFor="coverUrl">Cover:</label>
-            <input type="text" placeholder="CoverURL..." id="coverUrl" value={values.coverUrl} onChange={onChangeHandler} name="coverUrl"/>
+            <input type="text" placeholder="CoverURL..." id="coverUrl" value={values.coverUrl} onChange={onChangeHandler} name="coverUrl" required/>
 
             <label htmlFor="description">Description</label>
-            <textarea name="description" id="description" cols="40" rows="10" value={values.description} onChange={onChangeHandler} ></textarea>
+            <textarea name="description" id="description" cols="40" rows="10" value={values.description} onChange={onChangeHandler} required></textarea>
 
-            <input className='btn submit' type='submit' value="Add" />
+            <button>Add</button>
 
         </form>
         </>
