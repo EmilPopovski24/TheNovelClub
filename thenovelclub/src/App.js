@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { Header } from './components/Header/Header';
 import { Home } from './components/Home/Home';
@@ -14,8 +14,9 @@ import { AddBook } from './components/AddBook.js/AddBook';
 
 function App() {
 
+    const navigate = useNavigate();
     const [books, setBooks] = useState([]);
-
+    
     useEffect(()=> {
         bookService.getAll()
             .then(result => {
@@ -24,8 +25,10 @@ function App() {
     },[]);
 
     const onAddBookSubmit = async(bookData) => {
-        const result = await bookService.addBook(bookData);
-        return result
+        const newBook = await bookService.addBook(bookData);
+        setBooks(state => [...state, newBook])
+        navigate("/catalog")
+        return newBook;
     }
 
      return (
