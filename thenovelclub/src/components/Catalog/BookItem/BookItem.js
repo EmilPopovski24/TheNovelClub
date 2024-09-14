@@ -6,9 +6,7 @@ export const BookItem = ({
     name,
     author,
     published,
-    genre,
     coverUrl,
-    description, 
     _id
 }) => {
     return (
