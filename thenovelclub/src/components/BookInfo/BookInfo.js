@@ -32,6 +32,8 @@ export const BookInfo = () => {
         setComment('');
     };
 
+    console.log(comments)
+
     return (
         <>
         <div className="bookInfo-page">
@@ -62,16 +64,12 @@ export const BookInfo = () => {
                 </form>
             </div>
             <div className="bookComments-div">
-                
                 <ul className='bookComments-ul'>  
-                    {comments.length > 0 && (comments.map(x => (
-                        <div>
-                        <h5>Comments:</h5>
+                    {comments.map(x => (
                         <li className="comment">
                             <p>{x.username}: {x.comment}</p>
                         </li>
-                        </div>
-                    )))}
+                    ))}
                 </ul>
                 {comments.length === 0 && (
                     <p className="no-comment">No Comments</p>
