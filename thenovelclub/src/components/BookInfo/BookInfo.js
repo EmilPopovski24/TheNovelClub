@@ -32,7 +32,7 @@ export const BookInfo = () => {
         setComment('');
     };
 
-    console.log(comments)
+    console.log(comments) 
 
     return (
         <>
