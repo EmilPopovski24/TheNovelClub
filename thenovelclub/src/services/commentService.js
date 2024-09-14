@@ -10,6 +10,6 @@ export const create = async (commentData) => {
 export const getAll = async (bookId) => {
     const query = encodeURIComponent(`bookId="${bookId}"`);
     const result = await request.get(`${baseUrl}?where=${query}`);
-    const comments = Object.values(result);
-    return comments
+    // const comments = Object.values(result);
+    return result
 }
