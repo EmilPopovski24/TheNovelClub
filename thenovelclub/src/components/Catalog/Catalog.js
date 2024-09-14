@@ -1,4 +1,5 @@
-import { BookItem } from "./BookItem/BookItem"
+import { BookItem } from "./BookItem/BookItem";
+import './Catalog.css';
 
 export const Catalog = ({
     books

@@ -7,9 +7,9 @@ import { Login } from './components/Login/Login';
 import { Register } from './components/Register/Register';
 import { Logout } from './components/Logout/Logout';
 import * as bookService from './services/bookService';
-
 import './App.css';
 import { Catalog } from './components/Catalog/Catalog';
+import { BookInfo } from './components/BookInfo/BookInfo';
 
 function App() {
 
@@ -32,6 +32,7 @@ function App() {
                     <Route path='/register' element={<Register />} />
                     <Route path='/logout' element={<Logout />} />
                     <Route path='/catalog' element={<Catalog books={books}/>} />
+                    <Route path='/catalog/:bookId' element={<BookInfo />} />
                 </Routes>
             </div>
       < Footer />
