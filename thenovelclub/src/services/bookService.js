@@ -14,7 +14,7 @@ export const addBook = async(data) => {
 }
 
 export const getOne = async(bookId) => {
-    const result = request.get(`${baseUrl}/${bookId}`)
+    const result = await request.get(`${baseUrl}/${bookId}`)
     console.log(result)
     return result
 }

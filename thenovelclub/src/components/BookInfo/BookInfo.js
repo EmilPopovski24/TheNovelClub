@@ -18,7 +18,7 @@ export const BookInfo = () => {
     return (
         <>
         <div className="bookInfo-page">
-            
+            <img src={book.coverUrl} alt={book.name}/>            
 
         </div>
         </>
