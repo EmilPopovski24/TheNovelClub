@@ -13,6 +13,12 @@ export const addBook = async(data) => {
     return result
 }
 
+export const getOne = async(bookId) => {
+    const result = request.get(`${baseUrl}/${bookId}`)
+    console.log(result)
+    return result
+}
+
 
 // export const getAll = () => {
 //     fetch(baseUrl)
