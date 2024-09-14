@@ -19,7 +19,6 @@ export const BookInfo = () => {
                 setBook(result)
                 return commentService.getAll(bookId)
             });
-
     },[bookId])
 
     const onCommentSubmit = async(e) => {
@@ -27,7 +26,7 @@ export const BookInfo = () => {
         await commentService.create({
             bookId,
             username,
-            comment
+            comment,
         })
         setUsername('');
         setComment('');
