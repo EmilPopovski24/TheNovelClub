@@ -23,9 +23,10 @@ function App() {
             })
     },[]);
 
-    // const onAddBookSubmit = (bookData) => {
-
-    // }
+    const onAddBookSubmit = async(bookData) => {
+        const result = await bookService.addBook(bookData);
+        return result
+    }
 
      return (
         <div className="App">
@@ -38,7 +39,7 @@ function App() {
                     <Route path='/logout' element={<Logout />} />
                     <Route path='/catalog' element={<Catalog books={books}/>} />
                     <Route path='/catalog/:bookId' element={<BookInfo />} />
-                    <Route path='/add-book' element={<AddBook />} />
+                    <Route path='/add-book' element={<AddBook onAddBookSubmit={onAddBookSubmit}/>} />
                 </Routes>
             </div>
       < Footer />
