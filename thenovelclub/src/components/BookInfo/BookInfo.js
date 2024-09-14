@@ -11,12 +11,15 @@ export const BookInfo = () => {
     const [book, setBook] = useState({});
     const [username, setUsername] = useState('');
     const [comment, setComment] = useState('');
+    const [comments, setComments] = useState([]);
 
     useEffect(()=> {
         bookService.getOne(bookId)
             .then(result => {
                 setBook(result)
-            })
+                return commentService.getAll(bookId)
+            });
+
     },[bookId])
 
     const onCommentSubmit = async(e) => {
@@ -26,9 +29,9 @@ export const BookInfo = () => {
             username,
             comment
         })
-        setUsername('')
-        setComment('')
-    }
+        setUsername('');
+        setComment('');
+    };
 
     return (
         <>
@@ -62,9 +65,15 @@ export const BookInfo = () => {
             <div className="bookComments-div">
                 <h5>Comments:</h5>
                 <ul className='bookComments-ul'>  
-                    
-                    
+                    {comments.map(x => (
+                        <li className="comment">
+                            <p>{x.username}: {x.comment}</p>
+                        </li>
+                    ))}
                 </ul>
+                {comments.length === 0 && (
+                    <p className="no-comment">No</p>
+                )}
             </div>
         </div>
 
