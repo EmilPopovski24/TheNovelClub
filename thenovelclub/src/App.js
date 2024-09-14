@@ -10,6 +10,7 @@ import * as bookService from './services/bookService';
 import './App.css';
 import { Catalog } from './components/Catalog/Catalog';
 import { BookInfo } from './components/BookInfo/BookInfo';
+import { AddBook } from './components/AddBook.js/AddBook';
 
 function App() {
 
@@ -20,7 +21,11 @@ function App() {
             .then(result => {
                 setBooks(result);
             })
-    },[])
+    },[]);
+
+    // const onAddBookSubmit = (bookData) => {
+
+    // }
 
      return (
         <div className="App">
@@ -33,6 +38,7 @@ function App() {
                     <Route path='/logout' element={<Logout />} />
                     <Route path='/catalog' element={<Catalog books={books}/>} />
                     <Route path='/catalog/:bookId' element={<BookInfo />} />
+                    <Route path='/add-book' element={<AddBook />} />
                 </Routes>
             </div>
       < Footer />
