@@ -13,7 +13,7 @@ export const Catalog = ({
         <div className="catalog-page">
             {books.map(x=> <BookItem key={x._id} {...x} />)}
         </div>
-        {books.length === 0 & (
+        {books.length === 0 && (
             <h1 className="catalog-books">No books for review</h1>
         )}
         </>
