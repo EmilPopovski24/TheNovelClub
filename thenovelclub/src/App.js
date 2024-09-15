@@ -60,9 +60,15 @@ function App() {
         }
     }
 
-    const context = {
+    const onLogout = () => {
+
+        setAuth({});
+    }
+
+    const contextValues = {
         onLoginSubmit,
         onRegisterSubmit,
+        onLogout,
         userId: auth._id,
         token: auth.accessToken,
         userEmail: auth.email,
@@ -70,7 +76,7 @@ function App() {
     }
 
      return (
-        <AuthContext.Provider value={context}>
+        <AuthContext.Provider value={contextValues}>
         <div className="App">
             <Header />
             <div className='main-content'>
