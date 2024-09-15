@@ -7,15 +7,17 @@ import { Login } from './components/Login/Login';
 import { Register } from './components/Register/Register';
 import { Logout } from './components/Logout/Logout';
 import * as bookService from './services/bookService';
-import './App.css';
 import { Catalog } from './components/Catalog/Catalog';
 import { BookInfo } from './components/BookInfo/BookInfo';
 import { AddBook } from './components/AddBook.js/AddBook';
+import { AuthContext } from './contexts/AuthContext';
+import './App.css';
 
 function App() {
 
     const navigate = useNavigate();
     const [books, setBooks] = useState([]);
+    const [auth, setAuth] = useState({});
     
     useEffect(()=> {
         bookService.getAll()
@@ -31,7 +33,13 @@ function App() {
         return newBook;
     }
 
+    const onLoginSubmit = async (e) => {
+        e.preventDefault()
+        console.log(Object.fromEntries(new FormData(e.target)))
+    }
+
      return (
+        <AuthContext.Provider value={{onLoginSubmit}}>
         <div className="App">
             <Header />
             <div className='main-content'>
@@ -45,8 +53,9 @@ function App() {
                     <Route path='/add-book' element={<AddBook onAddBookSubmit={onAddBookSubmit}/>} />
                 </Routes>
             </div>
-      < Footer />
-    </div>
+            < Footer />
+        </div>
+        </AuthContext.Provider>
   );
 }
 
