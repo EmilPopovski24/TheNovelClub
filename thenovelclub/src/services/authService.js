@@ -6,3 +6,8 @@ export const login = (loginData) => {
     const result = request.post(`${baseUrl}/login`, loginData)
     return result
 }
+
+export const register = (registerData) => {
+    const result = request.post(`${baseUrl}/register`, registerData);
+    return result
+}

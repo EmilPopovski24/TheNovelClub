@@ -44,8 +44,25 @@ function App() {
         }
     }
 
+    const onRegisterSubmit = async(data) => {
+        const {confirmPassword, ...registerData} = data;
+        if (confirmPassword !== registerData.password) {
+            alert("Passwords do not match!"); 
+            return;
+        }
+
+        try {
+            const result = await authService.register(registerData)
+            setAuth(result);
+            navigate("/catalog")
+        } catch(error) {
+            alert("Registration is not completed!")
+        }
+    }
+
     const context = {
         onLoginSubmit,
+        onRegisterSubmit,
         userId: auth._id,
         token: auth.accessToken,
         userEmail: auth.email,
