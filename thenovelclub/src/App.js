@@ -12,7 +12,7 @@ import { AddBook } from './components/AddBook.js/AddBook';
 import { AuthContext } from './contexts/AuthContext';
 import { bookServiceFactory } from './services/bookService';
 import { authServiceFactory } from './services/authService';
-import { useService } from './hooks/useService';
+// import { useService } from './hooks/useService';
 import './App.css';
 
 function App() {
@@ -20,8 +20,8 @@ function App() {
     const navigate = useNavigate();
     const [books, setBooks] = useState([]);
     const [auth, setAuth] = useState({});
-    const bookService = useService(bookServiceFactory);
-    const authService = useService(authServiceFactory);
+    const bookService = bookServiceFactory(auth.accessToken);
+    const authService = authServiceFactory(auth.accessToken);
 
     useEffect(()=> {
         bookService.getAll()

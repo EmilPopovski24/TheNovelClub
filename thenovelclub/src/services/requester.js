@@ -25,19 +25,14 @@ export const request = async (method, url, data, token) => {
         return {}
     }
 
+    const result = await response.json();
 
     if(!response.ok) {
-        const result = await response.json();
         throw result
     }
 
-    try {
-        const result = await response.json();
-       
-        return result;
-    } catch (error) {
-        return {};
-    }
+    return result;
+
 }
 
 

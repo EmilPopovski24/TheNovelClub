@@ -1,9 +1,10 @@
 import { useParams } from "react-router-dom";
 import { useState } from "react";
-import * as bookService from '../../services/bookService';
-import * as commentService from '../../services/commentService';
+import { bookServiceFactory } from '../../services/bookService';
+import { commentServiceFactory } from '../../services/commentService';
 import { useEffect } from "react";
 import "./BookInfo.css";
+import { useService } from "../../hooks/useService";
 
 export const BookInfo = () => {
 
@@ -12,6 +13,8 @@ export const BookInfo = () => {
     const [username, setUsername] = useState('');
     const [comment, setComment] = useState('');
     const [comments, setComments] = useState([]);
+    const commentService = commentServiceFactory();
+    const bookService = useService(bookServiceFactory);
 
     useEffect(()=> {
         bookService.getOne(bookId)
@@ -57,7 +60,9 @@ export const BookInfo = () => {
         </div>
         <div className="post-comment">
             <div className="addComment-div">
-                <form className="addComment-form" onSubmit={onCommentSubmit} >
+                <form className="addComment-form" 
+                onSubmit={onCommentSubmit} 
+                >
                     <input type="text" name="username" placeholder="Emo..." value={username} onChange={(e) => setUsername(e.target.value)} />
                     <textarea name="comment" className='comment-area' id="comment-text" cols="50" rows="3" value={comment} onChange={(e) => setComment(e.target.value)}></textarea>
                     <button className='post-btn' type="submit">Add comment</button>
