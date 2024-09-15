@@ -6,11 +6,11 @@ import { Footer } from './components/Footer/Footer';
 import { Login } from './components/Login/Login';
 import { Register } from './components/Register/Register';
 import { Logout } from './components/Logout/Logout';
-import * as bookService from './services/bookService';
 import { Catalog } from './components/Catalog/Catalog';
 import { BookInfo } from './components/BookInfo/BookInfo';
 import { AddBook } from './components/AddBook.js/AddBook';
 import { AuthContext } from './contexts/AuthContext';
+import * as bookService from './services/bookService';
 import * as authService from './services/authService';
 import './App.css';
 
@@ -42,11 +42,18 @@ function App() {
         } catch(error) {
             alert("Invalid login details")
         }
-        
+    }
+
+    const context = {
+        onLoginSubmit,
+        userId: auth._id,
+        token: auth.accessToken,
+        userEmail: auth.email,
+        isAuthenticated: !!auth.accessToken,
     }
 
      return (
-        <AuthContext.Provider value={{onLoginSubmit}}>
+        <AuthContext.Provider value={context}>
         <div className="App">
             <Header />
             <div className='main-content'>
