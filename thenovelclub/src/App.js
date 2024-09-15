@@ -11,9 +11,9 @@ import { BookInfo } from './components/BookInfo/BookInfo';
 import { AddBook } from './components/AddBook.js/AddBook';
 import { AuthContext } from './contexts/AuthContext';
 import { bookServiceFactory } from './services/bookService';
-import * as authService from './services/authService';
-import './App.css';
+import { authServiceFactory } from './services/authService';
 import { useService } from './hooks/useService';
+import './App.css';
 
 function App() {
 
@@ -21,6 +21,7 @@ function App() {
     const [books, setBooks] = useState([]);
     const [auth, setAuth] = useState({});
     const bookService = useService(bookServiceFactory);
+    const authService = useService(authServiceFactory);
 
     useEffect(()=> {
         bookService.getAll()
