@@ -25,7 +25,7 @@ export const Login = () => {
             <div className="shape"></div>
             <div className="shape"></div>
         </div>
-        <form className="login-form" onSubmit={onSubmit}>
+        <form className="login-form" onSubmit={onSubmit} method="POST">
             <h3>Login</h3>
 
             <label htmlFor="email">Email</label>

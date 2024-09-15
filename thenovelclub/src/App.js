@@ -11,6 +11,7 @@ import { Catalog } from './components/Catalog/Catalog';
 import { BookInfo } from './components/BookInfo/BookInfo';
 import { AddBook } from './components/AddBook.js/AddBook';
 import { AuthContext } from './contexts/AuthContext';
+import * as authService from './services/authService';
 import './App.css';
 
 function App() {
@@ -34,8 +35,14 @@ function App() {
     }
 
     const onLoginSubmit = async(data) => {
-        console.log(data)
-        navigate("/catalog")
+        try {
+            const result = await authService.login(data)
+            setAuth(result);
+            navigate("/catalog")
+        } catch(error) {
+            alert("Invalid login details")
+        }
+        
     }
 
      return (
