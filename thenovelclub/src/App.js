@@ -33,9 +33,9 @@ function App() {
         return newBook;
     }
 
-    const onLoginSubmit = async (e) => {
-        e.preventDefault()
-        console.log(Object.fromEntries(new FormData(e.target)))
+    const onLoginSubmit = async(data) => {
+        console.log(data)
+        navigate("/catalog")
     }
 
      return (
