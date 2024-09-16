@@ -1,4 +1,4 @@
-import { Route, Routes, useNavigate, useSearchParams } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { Header } from './components/Header/Header';
 import { Home } from './components/Home/Home';
@@ -9,12 +9,11 @@ import { Logout } from './components/Logout/Logout';
 import { Catalog } from './components/Catalog/Catalog';
 import { BookInfo } from './components/BookInfo/BookInfo';
 import { AddBook } from './components/AddBook.js/AddBook';
+import { EditBook } from './components/EditBook/EditBook';
 import { AuthContext } from './contexts/AuthContext';
 import { bookServiceFactory } from './services/bookService';
 import { authServiceFactory } from './services/authService';
-// import { useService } from './hooks/useService';
 import './App.css';
-import { EditBook } from './components/EditBook/EditBook';
 
 function App() {
 
