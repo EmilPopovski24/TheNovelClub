@@ -14,6 +14,7 @@ import { bookServiceFactory } from './services/bookService';
 import { authServiceFactory } from './services/authService';
 // import { useService } from './hooks/useService';
 import './App.css';
+import { EditBook } from './components/EditBook/EditBook';
 
 function App() {
 
@@ -90,6 +91,7 @@ function App() {
                     <Route path='/logout' element={<Logout />} />
                     <Route path='/catalog' element={<Catalog books={books}/>} />
                     <Route path='/catalog/:bookId' element={<BookInfo />} />
+                    <Route path='/catalog/:bookId/edit' element={<EditBook />} />
                     <Route path='/add-book' element={<AddBook onAddBookSubmit={onAddBookSubmit}/>} />
                 </Routes>
             </div>
