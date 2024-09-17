@@ -50,8 +50,8 @@ body{
 .book-pic {
     margin-left: 0;
     margin: 50px;
-    width:80%;
-    max-height: 400px;
+    max-width:80%;
+    max-height: 200px;
     border: none;
 }
 
