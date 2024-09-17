@@ -43,7 +43,8 @@ export const BookInfo = () => {
             <div className="book-pic">
                 <img src={book.coverUrl} alt={book.name} id="book-pic"/>    
             </div>
-            <ul className="book-details">
+            <div className="book-details"></div>
+            <ul className="book-details-ul">
             {/* <div className="background">
                 <div className="shape"></div>
                 <div className="shape"></div>

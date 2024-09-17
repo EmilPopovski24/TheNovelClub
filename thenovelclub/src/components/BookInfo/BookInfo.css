@@ -41,12 +41,11 @@ body{
     bottom: -80px;
 } */ 
  
-/* .bookInfo-page {
+.bookInfo-page {
     display: flex;
-    flex-direction: column;
-    flex: "1 1";
-    justify-content: center;
-} */
+    flex-direction: row;
+    justify-content: center; 
+}
 
 #book-pic {
     margin-top: 50px;
@@ -57,12 +56,15 @@ body{
 }
 
 .book-details {
-    margin:50px;
+    margin-top:150px;    
+}
+
+.book-details-ul {
+    margin-top:50px; 
     /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
     max-width: 600px;
     font-family: arial;
     border-radius: 5px;
-    margin-top: 30px;
     width:100%;
     list-style: none;
     text-align: left;
@@ -70,7 +72,9 @@ body{
 
 .action-btns {
     margin-top: 50px;
+    margin-right:10px;
     width: 10%;
+    height:10%;
     background-color: #ffffff;
     color: #080710;
     padding: 15px 0;
