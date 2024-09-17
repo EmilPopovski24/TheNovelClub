@@ -63,8 +63,8 @@ function App() {
         }
     }
 
-    const onLogout = () => {
-
+    const onLogout = async () => {
+        await authService.logout();
         setAuth({});
     }
 
