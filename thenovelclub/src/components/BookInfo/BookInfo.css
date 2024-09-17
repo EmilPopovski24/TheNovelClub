@@ -39,19 +39,20 @@ body{
     );
     right: -30px;
     bottom: -80px;
-} */ */
-
-.bookInfo-page {
+} */ 
+ 
+/* .bookInfo-page {
     display: flex;
     flex-direction: column;
+    flex: "1 1";
     justify-content: center;
-}
+} */
 
-.book-pic {
-    margin-left: 0;
-    margin: 50px;
-    max-width:80%;
-    max-height: 200px;
+#book-pic {
+    margin-top: 50px;
+    margin-left: 0px;
+    width:80%;
+    max-height: 500px;
     border: none;
 }
 
