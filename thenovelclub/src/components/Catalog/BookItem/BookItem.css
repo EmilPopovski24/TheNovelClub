@@ -1,9 +1,9 @@
 .book-item-card {
-    border: 1px solid black;
+    border: 1px solid #23a2f6;
     border-radius: 5px;
-    max-width:30%;
-    max-height: 1000px;
-
+    width:30%;
+    height: 500px;
+    margin: 20px;
 }
 
 .book-cover {
@@ -17,4 +17,9 @@
     text-align: left;
     display: flex;
     flex-direction: column;
+    margin-left: 10px;
+}
+
+.more-info {
+    bottom:0px;
 }

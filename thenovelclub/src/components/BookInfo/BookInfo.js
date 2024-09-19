@@ -55,7 +55,7 @@ export const BookInfo = () => {
                 <li><h3>{book.genre}</h3></li>
                 <li><h3>{book.description}</h3></li>
             </ul>
-            <button className="action-btns"><Link to={`/catalog//edit`}>Edit</Link></button>
+            <button className="action-btns"><Link to={`/catalog/:bookId/edit`}>Edit</Link></button>
             <button className="action-btns">Delete</button>
             <button className="action-btns">Mark as Read</button>
         </div>
