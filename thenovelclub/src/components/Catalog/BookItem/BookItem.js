@@ -10,16 +10,16 @@ export const BookItem = ({
 }) => {
     return (
         <>
-        <div className="book-item-card">    
-            <div className='book-cover'>
-                <img src={coverUrl} alt={name} />
-            </div> 
-            <div className='book-info'>
-                <h3 id='book-name'>{name}</h3>
-                <h3>Author: {author}</h3>
-                <h3>Published: {published}</h3> 
-                {/* <h3>Genre: {genre}</h3> 
-                <h3>Description: </h3> {description}  */}
+        <div className="book-item-card">  
+            <div className="book-item">
+                <div className='book-cover'>
+                    <img src={coverUrl} alt={name} />
+                </div> 
+                <div className='book-info'>
+                    <h3 id='book-name'>{name}</h3>
+                    <h3>Author: {author}</h3>
+                    <h3>Published: {published}</h3> 
+                </div>
             </div>
             <div className='more-info'>
                 <button id="info-button"><Link to={`/catalog/${_id}`}> More Info</Link></button>
