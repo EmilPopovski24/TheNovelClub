@@ -8,7 +8,7 @@ export const EditBook = () => {
             <div className="shape"></div>
         </div>
 
-        <h3>Add a Book</h3>
+        <h3>Edit the Book</h3>
         <form className="addBook-form"  method="POST">
             
             <label htmlFor="name">Name</label>
