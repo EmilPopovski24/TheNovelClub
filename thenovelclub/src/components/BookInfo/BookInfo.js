@@ -45,7 +45,7 @@ export const BookInfo = () => {
 
     const onDelete = async() => {
         // confirm("Are you sure you want to delete the book?")
-        await bookService.deleteBook(book._id)
+        await bookService.delete(book._id)
         navigate("/catalog")
     }
 

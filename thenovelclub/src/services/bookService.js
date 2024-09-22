@@ -29,7 +29,7 @@ export const bookServiceFactory = (token) => {
         getAll,
         addBook,
         getOne,
-        deleteBook
+        delete:deleteBook
     }
 }
 
