@@ -23,10 +23,13 @@ export const bookServiceFactory = (token) => {
         return result
     }
 
+    const deleteBook = (bookId) => request.delete(`${baseUrl}/${bookId}`)
+
     return {
         getAll,
         addBook,
         getOne,
+        deleteBook
     }
 }
 

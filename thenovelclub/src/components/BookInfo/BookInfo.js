@@ -43,9 +43,9 @@ export const BookInfo = () => {
 
     const isOwner = book._ownerId === userId;
 
-    const onDelete = () => {
+    const onDelete = async() => {
         // confirm("Are you sure you want to delete the book?")
-        bookService.delete(book._id)
+        await bookService.deleteBook(book._id)
         navigate("/catalog")
     }
 
