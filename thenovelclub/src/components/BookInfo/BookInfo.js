@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useState, useContext } from "react";
 import { bookServiceFactory } from '../../services/bookService';
 // import { commentServiceFactory } from '../../services/commentService';
@@ -18,6 +18,7 @@ export const BookInfo = () => {
     // const [comments, setComments] = useState([]);
     // const commentService = commentServiceFactory();
     const bookService = useService(bookServiceFactory);
+    const navigate = useNavigate();
 
     useEffect(()=> {
         bookService.getOne(bookId)
@@ -42,6 +43,12 @@ export const BookInfo = () => {
 
     const isOwner = book._ownerId === userId;
 
+    const onDelete = () => {
+        // confirm("Are you sure you want to delete the book?")
+        bookService.delete(book._id)
+        navigate("/catalog")
+    }
+
     return (
         <>
         <div className="bookInfo-page">
@@ -63,7 +70,7 @@ export const BookInfo = () => {
             {isOwner && (
                 <>
                     <button className="action-btns"><Link to={`/catalog/${book._id}/edit`}>Edit</Link></button>
-                    <button className="action-btns">Delete</button>
+                    <button className="action-btns" onClick={onDelete}>Delete</button>
                 </>
             )}
 
