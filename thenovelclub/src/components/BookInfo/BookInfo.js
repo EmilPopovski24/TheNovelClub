@@ -40,7 +40,7 @@ export const BookInfo = () => {
 
     // console.log(comments) 
 
-    const isOwner = book._id === userId;
+    const isOwner = book._ownerId === userId;
 
     return (
         <>
