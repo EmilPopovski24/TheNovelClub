@@ -1,13 +1,16 @@
 import { Link, useParams } from "react-router-dom";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { bookServiceFactory } from '../../services/bookService';
 // import { commentServiceFactory } from '../../services/commentService';
 import { useEffect } from "react";
 import "./BookInfo.css";
 import { useService } from "../../hooks/useService";
+import { AuthContext } from "../../contexts/AuthContext";
+
 
 export const BookInfo = () => {
 
+    const { userId } = useContext(AuthContext)
     const { bookId } = useParams(); // get from app router bookId
     const [book, setBook] = useState({});
     const [username, setUsername] = useState('');
@@ -37,6 +40,8 @@ export const BookInfo = () => {
 
     // console.log(comments) 
 
+    const isOwner = book._id === userId;
+
     return (
         <>
         <div className="bookInfo-page">
@@ -55,8 +60,13 @@ export const BookInfo = () => {
                 <li><h3>{book.genre}</h3></li>
                 <li><h3>{book.description}</h3></li>
             </ul>
-            <button className="action-btns"><Link to={`/catalog/${book._id}/edit`}>Edit</Link></button>
-            <button className="action-btns">Delete</button>
+            {isOwner && (
+                <>
+                    <button className="action-btns"><Link to={`/catalog/${book._id}/edit`}>Edit</Link></button>
+                    <button className="action-btns">Delete</button>
+                </>
+            )}
+
             <button className="action-btns">Mark as Read</button>
         </div>
         <div className="post-comment">
