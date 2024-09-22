@@ -11,7 +11,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 export const BookInfo = () => {
 
     const { userId } = useContext(AuthContext)
-    const { bookId } = useParams(); // get from app router bookId
+    const { bookId } = useParams(); 
     const [book, setBook] = useState({});
     const [username, setUsername] = useState('');
     // const [comment, setComment] = useState('');
