@@ -68,6 +68,12 @@ function App() {
         setAuth({});
     }
 
+    const onBookEditSubmit = async (values, bookId) => {
+        const result = await bookService.edit(values, bookId);
+        navigate(`/catalog/${bookId}`)
+        return result
+    }
+
     const contextValues = {
         onLoginSubmit,
         onRegisterSubmit,
@@ -90,7 +96,7 @@ function App() {
                     <Route path='/logout' element={<Logout />} />
                     <Route path='/catalog' element={<Catalog books={books}/>} />
                     <Route path='/catalog/:bookId' element={<BookInfo />} />
-                    <Route path='/catalog/:bookId/edit' element={<EditBook />} />
+                    <Route path='/catalog/:bookId/edit' element={<EditBook onBookEditSubmit={onBookEditSubmit}/>} />
                     <Route path='/add-book' element={<AddBook onAddBookSubmit={onAddBookSubmit}/>} />
                 </Routes>
             </div>

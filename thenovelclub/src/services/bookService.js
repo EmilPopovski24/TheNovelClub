@@ -23,13 +23,16 @@ export const bookServiceFactory = (token) => {
         return result
     }
 
-    const deleteBook = (bookId) => request.delete(`${baseUrl}/${bookId}`)
+    const deleteBook = (bookId) => request.delete(`${baseUrl}/${bookId}`);
+
+    const edit = (bookId, data) => request.put(`${baseUrl}/${bookId}`, data)
 
     return {
         getAll,
         addBook,
         getOne,
-        deleteBook
+        deleteBook,
+        edit
     }
 }
 

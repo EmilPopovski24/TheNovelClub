@@ -10,7 +10,7 @@ export const EditBook = ({
 }) => {
     //TODO with useState
 
-    const { bookId } =useParams();
+    const { bookId } = useParams();
     const bookService = useService(bookServiceFactory);
     const { values, changeHandler, onSubmit,changeValues } = useForm({
         name: '',
@@ -25,8 +25,8 @@ export const EditBook = ({
         bookService.getOne(bookId)
             .then( result => {
                 changeValues(result)
-            })
-    })
+            });
+    });
 
     return (
         <>
