@@ -70,6 +70,7 @@ function App() {
 
     const onBookEditSubmit = async (values) => {
         const result = await bookService.edit(values._id, values);
+        setBooks(state => state.map(x=> x._id === values._id ? result: x))
         navigate(`/catalog/${values._id}`)
         return result
     }
