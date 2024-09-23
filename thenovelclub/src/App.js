@@ -12,7 +12,6 @@ import { AddBook } from './components/AddBook.js/AddBook';
 import { EditBook } from './components/EditBook/EditBook';
 import { AuthProvider } from './contexts/AuthContext';
 import { bookServiceFactory } from './services/bookService';
-import { authServiceFactory } from './services/authService';
 import './App.css';
 
 function App() {
@@ -20,9 +19,8 @@ function App() {
     const navigate = useNavigate();
     const [books, setBooks] = useState([]);
 
-    const bookService = bookServiceFactory(auth.accessToken);
+    const bookService = bookServiceFactory(); //auth.accessToken
     
-
     useEffect(()=> {
         bookService.getAll()
             .then(result => {
