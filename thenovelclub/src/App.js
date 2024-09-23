@@ -10,7 +10,7 @@ import { Catalog } from './components/Catalog/Catalog';
 import { BookInfo } from './components/BookInfo/BookInfo';
 import { AddBook } from './components/AddBook.js/AddBook';
 import { EditBook } from './components/EditBook/EditBook';
-import { AuthContext } from './contexts/AuthContext';
+import { AuthProvider } from './contexts/AuthContext';
 import { bookServiceFactory } from './services/bookService';
 import { authServiceFactory } from './services/authService';
 import './App.css';
@@ -19,9 +19,9 @@ function App() {
 
     const navigate = useNavigate();
     const [books, setBooks] = useState([]);
-    const [auth, setAuth] = useState({});
+
     const bookService = bookServiceFactory(auth.accessToken);
-    const authService = authServiceFactory(auth.accessToken);
+    
 
     useEffect(()=> {
         bookService.getAll()
@@ -37,37 +37,6 @@ function App() {
         return newBook;
     }
 
-    const onLoginSubmit = async(data) => {
-        try {
-            const result = await authService.login(data)
-            setAuth(result);
-            navigate("/catalog")
-        } catch(error) {
-            alert("Invalid login details")
-        }
-    }
-
-    const onRegisterSubmit = async(data) => {
-        const {confirmPassword, ...registerData} = data;
-        if (confirmPassword !== registerData.password) {
-            alert("Passwords do not match!"); 
-            return;
-        }
-
-        try {
-            const result = await authService.register(registerData)
-            setAuth(result);
-            navigate("/catalog")
-        } catch(error) {
-            alert("Registration is not completed!")
-        }
-    }
-
-    const onLogout = async () => {
-        await authService.logout();
-        setAuth({});
-    }
-
     const onBookEditSubmit = async (values) => {
         const result = await bookService.edit(values._id, values);
         setBooks(state => state.map(x=> x._id === values._id ? result: x))
@@ -75,18 +44,8 @@ function App() {
         return result
     }
 
-    const contextValues = {
-        onLoginSubmit,
-        onRegisterSubmit,
-        onLogout,
-        userId: auth._id,
-        token: auth.accessToken,
-        userEmail: auth.email,
-        isAuthenticated: !!auth.accessToken,
-    }
-
      return (
-        <AuthContext.Provider value={contextValues}>
+        <AuthProvider>
         <div className="App">
             <Header />
             <div className='main-content'>
@@ -103,7 +62,7 @@ function App() {
             </div>
             < Footer />
         </div>
-        </AuthContext.Provider>
+        </AuthProvider>
   );
 }
 
