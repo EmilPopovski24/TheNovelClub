@@ -13,6 +13,7 @@ export const EditBook = ({
     const { bookId } = useParams();
     const bookService = useService(bookServiceFactory);
     const { values, changeHandler, onSubmit,changeValues } = useForm({
+        _id:'',
         name: '',
         author: '',
         published: '',
@@ -26,7 +27,7 @@ export const EditBook = ({
             .then( result => {
                 changeValues(result)
             });
-    });
+    },[bookId]);
 
     return (
         <>

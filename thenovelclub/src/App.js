@@ -68,9 +68,9 @@ function App() {
         setAuth({});
     }
 
-    const onBookEditSubmit = async (values, bookId) => {
-        const result = await bookService.edit(values, bookId);
-        navigate(`/catalog/${bookId}`)
+    const onBookEditSubmit = async (values) => {
+        const result = await bookService.edit(values._id, values);
+        navigate(`/catalog/${values._id}`)
         return result
     }
 
