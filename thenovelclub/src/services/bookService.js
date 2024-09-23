@@ -19,7 +19,7 @@ export const bookServiceFactory = (token) => {
     
     const getOne = async(bookId) => {
         const result = await request.get(`${baseUrl}/${bookId}`)
-        console.log(result)
+        // console.log(result)
         return result
     }
 
@@ -29,7 +29,7 @@ export const bookServiceFactory = (token) => {
         getAll,
         addBook,
         getOne,
-        delete:deleteBook
+        deleteBook
     }
 }
 
