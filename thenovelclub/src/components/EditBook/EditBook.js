@@ -1,6 +1,19 @@
+import { useForm } from "../../hooks/useForm"
 
 
-export const EditBook = () => {
+export const EditBook = ({
+    onBookEditSubmit
+}) => {
+
+    const { values, changeHandler, onSubmit,changeValues } = useForm({
+        name: '',
+        author: '',
+        published: '',
+        genre: '',
+        coverUrl:'',
+        description: ''
+    }, onBookEditSubmit)
+
     return (
         <>
         <div className="background">
