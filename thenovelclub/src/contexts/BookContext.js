@@ -2,22 +2,23 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { bookServiceFactory } from "../services/bookService"
 
-
 export const BookContext = createContext();
 
 export const BookProvider = ({
     children
 }) => {
 
+    const bookService = bookServiceFactory();
     const navigate = useNavigate();
     const [books, setBooks] = useState([]);
-    const bookService = bookServiceFactory();
     
     useEffect(()=> {
-        bookService.getAll()
+        if(books.length > 0) {
+            bookService.getAll()
             .then(result => {
                 setBooks(result);
             })
+        } 
     },[]);
 
     const onAddBookSubmit = async(bookData) => {
@@ -39,7 +40,6 @@ export const BookProvider = ({
         onBookEditSubmit,
         books
     }
-
 
     return (
         <BookContext.Provider value={contextValues}>

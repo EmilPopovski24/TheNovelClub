@@ -1,10 +1,11 @@
+import { useContext } from 'react';
 import { useForm } from '../../hooks/useForm';
 import './AddBook.css';
+import { BookContext } from '../../contexts/BookContext';
 
-export const AddBook = ({
-    onAddBookSubmit
-}) => {
+export const AddBook = () => {
 
+    const { onAddBookSubmit } = useContext(BookContext);
     const {values, changeHandler, onSubmit } = useForm({
         name: '',
         author: '',
