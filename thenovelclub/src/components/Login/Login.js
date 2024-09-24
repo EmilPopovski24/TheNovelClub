@@ -9,7 +9,9 @@ import './Login.css';
 //     Password: 'password'
 // }
 
-export const Login = () => {
+export const Login = ({
+    auth
+}) => {
 
     const { onLoginSubmit } = useContext(AuthContext);
     const { values, changeHandler, onSubmit } = useForm({

@@ -16,7 +16,7 @@ export const AuthProvider = ({
         try {
             const result = await authService.login(data)
             setAuth(result);
-            navigate("/catalog")
+            navigate("/")
         } catch(error) {
             alert("Invalid login details")
         }

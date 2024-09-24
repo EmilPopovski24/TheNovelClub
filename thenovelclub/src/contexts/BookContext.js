@@ -11,7 +11,7 @@ export const BookProvider = ({
 
     const navigate = useNavigate();
     const [books, setBooks] = useState([]);
-    const bookService = bookServiceFactory(); //auth.accessToken
+    const bookService = bookServiceFactory();
     
     useEffect(()=> {
         bookService.getAll()
