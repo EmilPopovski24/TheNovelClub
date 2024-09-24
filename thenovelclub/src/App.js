@@ -14,8 +14,6 @@ import { BookProvider } from './contexts/BookContext';
 import { withAuth } from './hoc/withAuth';
 import './App.css';
 
-
-
 function App() {
 
     const EnhancedLogin = withAuth(Login)
