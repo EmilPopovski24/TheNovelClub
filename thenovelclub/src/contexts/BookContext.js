@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { bookServiceFactory } from "../services/bookService"
 
@@ -11,7 +11,6 @@ export const BookProvider = ({
 
     const navigate = useNavigate();
     const [books, setBooks] = useState([]);
-
     const bookService = bookServiceFactory(); //auth.accessToken
     
     useEffect(()=> {
@@ -47,5 +46,9 @@ export const BookProvider = ({
             {children}
         </BookContext.Provider>
     )
+};
 
-}
+export const useBookContext = () => {
+    const context = useContext(BookContext);
+    return context
+};
