@@ -11,8 +11,9 @@ import { AddBook } from './components/AddBook.js/AddBook';
 import { EditBook } from './components/EditBook/EditBook';
 import { AuthProvider } from './contexts/AuthContext';
 import { BookProvider } from './contexts/BookContext';
-import './App.css';
 import { withAuth } from './hoc/withAuth';
+import './App.css';
+
 
 
 function App() {
@@ -33,7 +34,7 @@ function App() {
                     <Route path='/catalog' element={<Catalog />} />
                     <Route path='/catalog/:bookId' element={<BookInfo />} />
                     <Route path='/catalog/:bookId/edit' element={<EditBook />} />
-                    <Route path='/add-book' element={<AddBook />} />
+                    <Route path='/add-book' element={<AddBook auth={withAuth}/>} />
                 </Routes>
             </div>
             < Footer />
