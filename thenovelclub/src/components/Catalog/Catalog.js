@@ -5,7 +5,7 @@ import './Catalog.css';
 export const Catalog = () => {
 
     const books = useBookContext();
-    console.log(books)
+    console.log(books.books)
     
     return (
         <>
