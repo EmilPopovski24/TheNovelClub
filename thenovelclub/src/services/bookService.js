@@ -1,6 +1,6 @@
 import { requestFactory }  from "./requester";
 
-const baseUrl = 'http://localhost:3030/jsonstore/books';
+const baseUrl = 'http://localhost:3030/data/books';
 
 export const bookServiceFactory = (token) => {
 
