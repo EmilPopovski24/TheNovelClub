@@ -13,7 +13,6 @@ export const bookServiceFactory = (token) => {
     }
     
     const addBook = async(data) => {
-
         const result = await request.post(baseUrl, data);
         return result
     }
