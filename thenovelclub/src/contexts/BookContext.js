@@ -25,7 +25,6 @@ export const BookProvider = ({
         const newBook = await bookService.addBook(bookData);
         setBooks(state => [...state, newBook])
         navigate("/catalog")
-        return newBook;
     }
 
     const onBookEditSubmit = async (values) => {

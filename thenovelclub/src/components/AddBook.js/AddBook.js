@@ -2,9 +2,11 @@ import { useContext } from 'react';
 import { useForm } from '../../hooks/useForm';
 import './AddBook.css';
 import { BookContext } from '../../contexts/BookContext';
+import { AuthContext } from '../../contexts/AuthContext';
 
 export const AddBook = () => {
 
+    const user = useContext(AuthContext)
     const { onAddBookSubmit } = useContext(BookContext);
     const {values, changeHandler, onSubmit } = useForm({
         name: '',
@@ -13,6 +15,7 @@ export const AddBook = () => {
         genre: '',
         coverUrl: '',
         description: '',
+        username: user.username
     }, onAddBookSubmit);
 
     return (
