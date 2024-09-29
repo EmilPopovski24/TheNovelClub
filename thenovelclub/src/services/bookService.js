@@ -6,7 +6,7 @@ export const bookServiceFactory = (token) => {
 
     const request = requestFactory(token)
 
-    const getAll =async () => {
+    const getAll = async () => {
         const result = await request.get(baseUrl);
         const books = Object.values(result)
         return books;

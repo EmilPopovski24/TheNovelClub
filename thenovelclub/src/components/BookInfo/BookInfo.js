@@ -10,7 +10,8 @@ import { AuthContext } from "../../contexts/AuthContext";
 
 export const BookInfo = () => {
 
-    const { userId } = useContext(AuthContext)
+    const { userId } = useContext(AuthContext);
+    console.log(userId)
     const { bookId } = useParams(); 
     const [book, setBook] = useState({});
     const [username, setUsername] = useState('');

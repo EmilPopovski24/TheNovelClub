@@ -38,8 +38,8 @@ export const BookProvider = ({
     const contextValues = {
         onAddBookSubmit,
         onBookEditSubmit,
-        books
-    }
+        books,
+    };
 
     return (
         <BookContext.Provider value={contextValues}>

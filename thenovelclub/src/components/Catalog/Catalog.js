@@ -9,14 +9,13 @@ export const Catalog = () => {
     
     return (
         <>
-        {books.length > 0 && (
+        {books.books.length > 0 && (
             <h1 className="catalog-books">Books For Review</h1>
         )}
         <div className="catalog-page">
-            <p>ihaaa</p>
-            {books.map(x=> <BookItem key={x._id} {...x} />)}
+            {books.books.map(x=> <BookItem key={x._id} {...x} />)}
         </div>
-        {books.length === 0 && (
+        {books.books.length === 0 && (
             <h1 className="catalog-books">No books for review</h1>
         )}
         </>
