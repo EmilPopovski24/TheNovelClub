@@ -4,9 +4,7 @@ import './AddBook.css';
 import { BookContext } from '../../contexts/BookContext';
 import { AuthContext } from '../../contexts/AuthContext';
 
-export const AddBook = ({
-    auth
-}) => {
+export const AddBook = () => {
 
     const user = useContext(AuthContext);
     const { onAddBookSubmit } = useContext(BookContext);
