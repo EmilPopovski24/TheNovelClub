@@ -42,7 +42,7 @@ export const BookInfo = () => {
         setComment('');
     };
 
-    // console.log(comments) 
+    console.log(comments) 
 
     const isOwner = book._ownerId === userId;
 
@@ -81,8 +81,7 @@ export const BookInfo = () => {
         </div>
         <div className="post-comment">
             <div className="addComment-div">
-                <form className="addComment-form" 
-                onSubmit={onCommentSubmit} 
+                <form className="addComment-form" onSubmit={onCommentSubmit} 
                 >
                     <input type="text" name="username" placeholder="Username..." value={username} onChange={(e) => setUsername(e.target.value)} />
                     <textarea name="comment" className='comment-area' id="comment-text" cols="50" rows="3" value={comment} onChange={(e) => setComment(e.target.value)}></textarea>
