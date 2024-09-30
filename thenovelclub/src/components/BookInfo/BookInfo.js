@@ -42,7 +42,7 @@ export const BookInfo = () => {
         setComment('');
     };
 
-    console.log(comments) 
+
 
     const isOwner = book._ownerId === userId;
 
