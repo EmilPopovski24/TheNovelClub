@@ -11,12 +11,12 @@ import { AddBook } from './components/AddBook.js/AddBook';
 import { EditBook } from './components/EditBook/EditBook';
 import { AuthProvider } from './contexts/AuthContext';
 import { BookProvider } from './contexts/BookContext';
-import { withAuth } from './hoc/withAuth';
+// import { withAuth } from './hoc/withAuth';
 import './App.css';
 
 function App() {
 
-    const EnhancedLogin = withAuth(Login)
+    // const EnhancedLogin = withAuth(Login)
 
      return (
         <AuthProvider>
@@ -26,13 +26,13 @@ function App() {
             <div className='main-content'>
                 <Routes>
                     <Route path='/' element={<Home />} />
-                    <Route path='/login' element={<EnhancedLogin />} />
+                    <Route path='/login' element={<Login />} />
                     <Route path='/register' element={<Register />} />
                     <Route path='/logout' element={<Logout />} />
                     <Route path='/catalog' element={<Catalog />} />
                     <Route path='/catalog/:bookId' element={<BookInfo />} />
                     <Route path='/catalog/:bookId/edit' element={<EditBook />} />
-                    <Route path='/add-book' element={<AddBook auth={withAuth}/>} />
+                    <Route path='/add-book' element={<AddBook />} />
                 </Routes>
             </div>
             < Footer />
