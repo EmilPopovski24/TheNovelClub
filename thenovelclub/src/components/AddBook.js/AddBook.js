@@ -26,7 +26,7 @@ export const AddBook = () => {
         </div>
 
         <h3>Add a Book</h3>
-        <form className="addBook-form" onSubmit={onSubmit} method="POST">
+        <form className="addBook-form" onSubmit={onSubmit}>
             
             <label htmlFor="name">Name</label>
             <input type="text" placeholder="Book name..." id="name" value={values.name} onChange={changeHandler} name="name" required/>
