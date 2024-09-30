@@ -12,7 +12,6 @@ import { commentServiceFactory } from "../../services/commentService";
 export const BookInfo = () => {
 
     const { userId } = useContext(AuthContext);
-    console.log(userId)
     const { bookId } = useParams(); 
     const [book, setBook] = useState({});
     const [username, setUsername] = useState('');
