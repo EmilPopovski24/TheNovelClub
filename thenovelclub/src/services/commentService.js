@@ -1,10 +1,10 @@
-import { requestFactory } from "./requester";
+import { requestFactory }  from "./requester";
 
-const baseUrl = 'http://localhost:3030/jsonstore/comments';
+const baseUrl = 'http://localhost:3030/data/comments';
 
 export const commentServiceFactory = (token) => {
 
-    const request = commentServiceFactory(token);
+    const request = requestFactory(token);
 
     const create = async (commentData) => {
         const comment = await request.post(baseUrl, commentData);
