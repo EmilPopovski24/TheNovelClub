@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import "./BookInfo.css";
 import { useService } from "../../hooks/useService";
 import { AuthContext } from "../../contexts/AuthContext";
+import { commentServiceFactory } from "../../services/commentService";
 
 
 export const BookInfo = () => {
@@ -15,9 +16,9 @@ export const BookInfo = () => {
     const { bookId } = useParams(); 
     const [book, setBook] = useState({});
     const [username, setUsername] = useState('');
-    // const [comment, setComment] = useState('');
-    // const [comments, setComments] = useState([]);
-    // const commentService = commentServiceFactory();
+    const [comment, setComment] = useState('');
+    const [comments, setComments] = useState([]);
+    const commentService = commentServiceFactory();
     const bookService = useService(bookServiceFactory);
     const navigate = useNavigate();
 
@@ -25,20 +26,22 @@ export const BookInfo = () => {
         bookService.getOne(bookId)
             .then(result => {
                 setBook(result)
-                // return commentService.getAll(bookId)
-            });
+                if(comments.length > 0) {
+                    return commentService.getAll(bookId)
+            }}
+        );
     },[bookId])
 
-    // const onCommentSubmit = async(e) => {
-    //     e.preventDefault();
-    //     await commentService.create({
-    //         bookId,
-    //         username,
-    //         comment,
-    //     })
-    //     setUsername('');
-    //     setComment('');
-    // };
+    const onCommentSubmit = async(e) => {
+        e.preventDefault();
+        await commentService.create({
+            bookId,
+            username,
+            comment,
+        })
+        setUsername('');
+        setComment('');
+    };
 
     // console.log(comments) 
 
@@ -78,16 +81,16 @@ export const BookInfo = () => {
             <button className="action-btns">Mark as Read</button>
         </div>
         <div className="post-comment">
-            {/* <div className="addComment-div">
+            <div className="addComment-div">
                 <form className="addComment-form" 
                 onSubmit={onCommentSubmit} 
                 >
-                    <input type="text" name="username" placeholder="Emo..." value={username} onChange={(e) => setUsername(e.target.value)} />
+                    <input type="text" name="username" placeholder="Username..." value={username} onChange={(e) => setUsername(e.target.value)} />
                     <textarea name="comment" className='comment-area' id="comment-text" cols="50" rows="3" value={comment} onChange={(e) => setComment(e.target.value)}></textarea>
                     <button className='post-btn' type="submit">Add comment</button>
                 </form>
-            </div> */}
-            {/* <div className="bookComments-div">
+            </div>
+            <div className="bookComments-div">
                 <ul className='bookComments-ul'>  
                     {comments.map(x => (
                         <li className="comment">
@@ -98,7 +101,7 @@ export const BookInfo = () => {
                 {comments.length === 0 && (
                     <p className="no-comment">No Comments</p>
                 )}
-            </div> */}
+            </div>
         </div>
 
 
