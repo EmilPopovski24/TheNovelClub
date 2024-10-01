@@ -33,12 +33,18 @@ export const BookInfo = () => {
 
     const onCommentSubmit = async(e) => {
         e.preventDefault();
-        await commentService.create({
+        const response = await commentService.create({
             bookId,
-            username,
+            // username,
             comment,
         })
-        setUsername('');
+
+        setComment(state => ({
+            ...state,
+            comments:[...comments, response]
+        }));
+
+        // setUsername('');
         setComment('');
     };
 
@@ -81,9 +87,8 @@ export const BookInfo = () => {
         </div>
         <div className="post-comment">
             <div className="addComment-div">
-                <form className="addComment-form" onSubmit={onCommentSubmit} 
-                >
-                    <input type="text" name="username" placeholder="Username..." value={username} onChange={(e) => setUsername(e.target.value)} />
+                <form className="addComment-form" onSubmit={onCommentSubmit} >
+                    {/* <input type="text" name="username" placeholder="Username..." value={username} onChange={(e) => setUsername(e.target.value)} /> */}
                     <textarea name="comment" className='comment-area' id="comment-text" cols="50" rows="3" value={comment} onChange={(e) => setComment(e.target.value)}></textarea>
                     <button className='post-btn' type="submit">Add comment</button>
                 </form>
