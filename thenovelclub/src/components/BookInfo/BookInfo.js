@@ -14,7 +14,7 @@ export const BookInfo = () => {
     const { userId } = useContext(AuthContext);
     const { bookId } = useParams(); 
     const [book, setBook] = useState({});
-    const [username, setUsername] = useState('');
+    // const [username, setUsername] = useState('');
     const [comment, setComment] = useState('');
     const [comments, setComments] = useState([]);
     const commentService = useService(commentServiceFactory);
@@ -48,8 +48,6 @@ export const BookInfo = () => {
         // setUsername('');
         setComment('');
     };
-
-
 
     const isOwner = book._ownerId === userId;
 
@@ -98,7 +96,7 @@ export const BookInfo = () => {
                 <ul className='bookComments-ul'>  
                     {comments.map(x => (
                         <li className="comment">
-                            <p>{x.username}: {x.comment}</p>
+                            <p>{x.author.username}: {x.comment}</p>
                         </li>
                     ))}
                 </ul>
