@@ -23,7 +23,12 @@
     margin-left: 10px;
 }
 
-.more-info {
-    margin:10px;
-    display: block;
+.info-button {
+    bottom:0;
+
+    
+}
+
+.more-info a {
+    text-decoration: none;
 }
