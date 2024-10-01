@@ -17,18 +17,19 @@ export const BookInfo = () => {
     const [username, setUsername] = useState('');
     const [comment, setComment] = useState('');
     const [comments, setComments] = useState([]);
-    const commentService = commentServiceFactory();
+    const commentService = useService(commentServiceFactory);
     const bookService = useService(bookServiceFactory);
     const navigate = useNavigate();
 
     useEffect(()=> {
         bookService.getOne(bookId)
             .then(result => {
-                setBook(result)
-                if(comments.length > 0) {
-                    return commentService.getAll(bookId)
-            }}
-        );
+                setBook(result)   
+                return commentService.getAll(bookId)
+            })
+            .then(result => {
+                setComments(result)
+            })
     },[bookId])
 
     const onCommentSubmit = async(e) => {
