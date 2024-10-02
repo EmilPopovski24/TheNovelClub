@@ -33,8 +33,8 @@ export const BookInfo = () => {
             })
     },[bookId])
 
-    const onCommentSubmit = async(e) => {
-        e.preventDefault();
+    const onCommentSubmit = (values) => {
+       console.log(values)
         // const response = await commentService.create({
         //     bookId,
         //     // username,
