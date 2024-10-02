@@ -106,7 +106,6 @@ body{
 .post-btn {
     width: 25%;
     display: block;
-    /* height:10%; */
     background: linear-gradient(
         #1845ad,
         #23a2f6
@@ -117,4 +116,12 @@ body{
     font-weight: 600;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.comments-li {
+    list-style: none;
+}
+
+.bookComments-ul {
+    float:left;
 }

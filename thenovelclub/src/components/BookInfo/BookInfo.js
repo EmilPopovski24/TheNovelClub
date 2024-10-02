@@ -100,15 +100,15 @@ export const BookInfo = () => {
             { isAuthenticated && ( <AddComment onCommentSubmit={onCommentSubmit}/>)}
             <div className="bookComments-div">
                 <ul className='bookComments-ul'>  
-                    {comments.map(x => (
-                        <li className="comment">
-                            <p>{x.author.username}: {x.comment}</p>
+                    {book.comments && book.comments.map(x => (
+                        <li key={x._id} className="comments-li">
+                            <p>{x.author.username}: {x.commentData}</p>
                         </li>
                     ))}
                 </ul>
-                {comments.length === 0 && (
+                {/* {book.comments.length === 0 && (
                     <p className="no-comment">No Comments</p>
-                )}
+                )} */}
             </div>
         </div>
         </>
