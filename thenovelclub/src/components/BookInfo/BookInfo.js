@@ -1,13 +1,13 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { bookServiceFactory } from '../../services/bookService';
-// import { commentServiceFactory } from '../../services/commentService';
-import { useEffect } from "react";
-import "./BookInfo.css";
 import { useService } from "../../hooks/useService";
 import { useAuthContext } from "../../contexts/AuthContext";
-import { commentServiceFactory } from "../../services/commentService";
+// import { commentServiceFactory } from "../../services/commentService";
 import { AddComment } from "./AddComment/AddComment";
+import * as commentService from "../../services/commentService";
+
+import "./BookInfo.css";
 
 
 export const BookInfo = () => {
@@ -18,28 +18,38 @@ export const BookInfo = () => {
     // const [username, setUsername] = useState('');
     const [comment, setComment] = useState('');
     const [comments, setComments] = useState([]);
-    const commentService = useService(commentServiceFactory);
+    // const commentService = useService(commentServiceFactory);
     const bookService = useService(bookServiceFactory);
     const navigate = useNavigate();
 
-    useEffect(()=> {
-        bookService.getOne(bookId)
-            .then(result => {
-                setBook(result)   
-                return commentService.getAll(bookId)
+    useEffect(() => {
+        Promise.all([
+            bookService.getOne(bookId),
+            commentService.getAll(bookId)
+        ]).then(([bookData,comments]) => {
+            setBook({
+                ...bookData,
+                comments,
             })
-            .then(result => {
-                setComments(result)
-            })
+        })
     },[bookId])
 
-    const onCommentSubmit = (values) => {
-       console.log(values)
-        // const response = await commentService.create({
-        //     bookId,
-        //     // username,
-        //     comment,
-        // })
+    // useEffect(()=> {
+    //     bookService.getOne(bookId)
+    //         .then(result => {
+    //             setBook(result)   
+    //             return commentService.getAll(bookId)
+    //         })
+    //         .then(result => {
+    //             setComments(result)
+    //         })
+    // },[bookId])
+
+    const onCommentSubmit = async (values) => {
+       
+       const response = await commentService.create(bookId, values.comment)
+       console.log(response)
+
 
         // setComment(state => ({
         //     ...state,
