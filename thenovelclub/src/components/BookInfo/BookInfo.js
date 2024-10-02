@@ -12,7 +12,7 @@ import "./BookInfo.css";
 
 export const BookInfo = () => {
 
-    const { userId, isAuthenticated } = useAuthContext();
+    const { userId, isAuthenticated, username } = useAuthContext();
     const { bookId } = useParams(); 
     const [book, setBook] = useState({});
     // const [username, setUsername] = useState('');
@@ -31,7 +31,6 @@ export const BookInfo = () => {
                 ...bookData,
                 comments,
             })
-            console.log(comments)
         })
     },[bookId])
 
@@ -52,7 +51,12 @@ export const BookInfo = () => {
 
         setBook(state => ({
             ...state,
-            comments:[...state.comments, response]
+            comments:[...state.comments, {
+                ...response,
+                author:{
+                    username,
+                }
+            }]
         }));
 
         // setComment('');
@@ -99,7 +103,7 @@ export const BookInfo = () => {
                 <ul className='bookComments-ul'>  
                     {book.comments && book.comments.map(x => (
                         <li key={x._id} className="comments-li">
-                            <p>{x.commentData}</p>
+                            <p>{x.author.username}:{x.commentData}</p>
                         </li>
                     ))}
                 </ul>
