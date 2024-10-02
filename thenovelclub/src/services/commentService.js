@@ -12,8 +12,8 @@ export const getAll = async (bookId) => {
         const query = encodeURIComponent(`bookId="${bookId}"`);
         const author = encodeURIComponent(`author=_ownerId:users`);
         const result = await request.get(`${baseUrl}?where=${query}&load=${author}`);
-        // const comments = Object.values(result);
-        return result
+        const comments = Object.values(result);
+        return comments
 };
 
 

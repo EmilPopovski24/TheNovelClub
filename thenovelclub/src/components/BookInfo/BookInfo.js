@@ -31,6 +31,7 @@ export const BookInfo = () => {
                 ...bookData,
                 comments,
             })
+            console.log(comments)
         })
     },[bookId])
 
