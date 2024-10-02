@@ -49,14 +49,11 @@ export const BookInfo = () => {
     const onCommentSubmit = async (values) => {
        
        const response = await commentService.create(bookId, values.comment)
-       
-
 
         setBook(state => ({
             ...state,
             comments:[...state.comments, response]
         }));
-
 
         // setComment('');
     };
