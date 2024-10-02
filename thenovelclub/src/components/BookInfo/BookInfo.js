@@ -49,15 +49,15 @@ export const BookInfo = () => {
     const onCommentSubmit = async (values) => {
        
        const response = await commentService.create(bookId, values.comment)
-       console.log(response)
+       
 
 
-        // setComment(state => ({
-        //     ...state,
-        //     comments:[...comments, response]
-        // }));
+        setBook(state => ({
+            ...state,
+            comments:[...state.comments, response]
+        }));
 
-        // // setUsername('');
+
         // setComment('');
     };
 
@@ -102,7 +102,7 @@ export const BookInfo = () => {
                 <ul className='bookComments-ul'>  
                     {book.comments && book.comments.map(x => (
                         <li key={x._id} className="comments-li">
-                            <p>{x.author.username}: {x.commentData}</p>
+                            <p>{x.commentData}</p>
                         </li>
                     ))}
                 </ul>

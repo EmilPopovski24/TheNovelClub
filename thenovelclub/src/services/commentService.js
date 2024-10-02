@@ -10,8 +10,8 @@ export const create = async (bookId, commentData) => {
     
 export const getAll = async (bookId) => {
         const query = encodeURIComponent(`bookId="${bookId}"`);
-        const author = encodeURIComponent(`author=_ownerId:users`);
-        const result = await request.get(`${baseUrl}?where=${query}&load=${author}`);
+        // const author = encodeURIComponent(`author=_ownerId:users`);
+        const result = await request.get(`${baseUrl}?where=${query}`);
         const comments = Object.values(result);
         return comments
 };
