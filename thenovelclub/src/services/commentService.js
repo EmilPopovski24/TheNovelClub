@@ -7,7 +7,7 @@ export const commentServiceFactory = (token) => {
     const request = requestFactory(token);
 
     const create = async (bookId, commentData) => {
-        const comment = await request.post(baseUrl, bookId, commentData);
+        const comment = await request.post(baseUrl, { bookId, commentData });
         return comment;
     }
     
