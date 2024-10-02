@@ -1,17 +1,18 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { useState, useContext } from "react";
+import { useState } from "react";
 import { bookServiceFactory } from '../../services/bookService';
 // import { commentServiceFactory } from '../../services/commentService';
 import { useEffect } from "react";
 import "./BookInfo.css";
 import { useService } from "../../hooks/useService";
-import { AuthContext } from "../../contexts/AuthContext";
+import { useAuthContext } from "../../contexts/AuthContext";
 import { commentServiceFactory } from "../../services/commentService";
+import { AddComment } from "./AddComment/AddComment";
 
 
 export const BookInfo = () => {
 
-    const { userId } = useContext(AuthContext);
+    const { userId, isAuthenticated } = useAuthContext();
     const { bookId } = useParams(); 
     const [book, setBook] = useState({});
     // const [username, setUsername] = useState('');
@@ -34,19 +35,19 @@ export const BookInfo = () => {
 
     const onCommentSubmit = async(e) => {
         e.preventDefault();
-        const response = await commentService.create({
-            bookId,
-            // username,
-            comment,
-        })
+        // const response = await commentService.create({
+        //     bookId,
+        //     // username,
+        //     comment,
+        // })
 
-        setComment(state => ({
-            ...state,
-            comments:[...comments, response]
-        }));
+        // setComment(state => ({
+        //     ...state,
+        //     comments:[...comments, response]
+        // }));
 
-        // setUsername('');
-        setComment('');
+        // // setUsername('');
+        // setComment('');
     };
 
     const isOwner = book._ownerId === userId;
@@ -85,13 +86,7 @@ export const BookInfo = () => {
             <button className="action-btns">Mark as Read</button>
         </div>
         <div className="post-comment">
-            <div className="addComment-div">
-                <form className="addComment-form" onSubmit={onCommentSubmit} >
-                    {/* <input type="text" name="username" placeholder="Username..." value={username} onChange={(e) => setUsername(e.target.value)} /> */}
-                    <textarea name="comment" className='comment-area' id="comment-text" cols="50" rows="3" value={comment} onChange={(e) => setComment(e.target.value)}></textarea>
-                    <button className='post-btn' type="submit">Add comment</button>
-                </form>
-            </div>
+            { isAuthenticated && ( <AddComment onCommentSubmit={onCommentSubmit}/>)}
             <div className="bookComments-div">
                 <ul className='bookComments-ul'>  
                     {comments.map(x => (
@@ -105,8 +100,6 @@ export const BookInfo = () => {
                 )}
             </div>
         </div>
-
-
         </>
     )
 }
