@@ -4,7 +4,6 @@ import { useService } from "../../hooks/useService";
 import { bookServiceFactory } from "../../services/bookService";
 import { useEffect } from "react";
 
-
 export const EditBook = ({
     onBookEditSubmit
 }) => {
@@ -12,7 +11,7 @@ export const EditBook = ({
 
     const { bookId } = useParams();
     const bookService = useService(bookServiceFactory);
-    const { values, changeHandler, onSubmit,changeValues } = useForm({
+    const { values, changeHandler, onSubmit, changeValues } = useForm({
         _id:'',
         name: '',
         author: '',
@@ -37,7 +36,7 @@ export const EditBook = ({
         </div> 
 
         <h3>Edit the Book</h3>
-        <form className="addBook-form"  method="POST" onSubmit={onSubmit}>
+        <form className="addBook-form" onSubmit={onSubmit}>
             
             <label htmlFor="name">Name</label>
             <input type="text" placeholder="Book name..." id="name"  name="name" value={values.name} onChange={changeHandler} required/>
