@@ -2,13 +2,12 @@ import { useParams } from "react-router-dom"
 import { useForm } from "../../hooks/useForm"
 import { useService } from "../../hooks/useService";
 import { bookServiceFactory } from "../../services/bookService";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
+import { BookContext } from "../../contexts/BookContext";
 
-export const EditBook = ({
-    onBookEditSubmit
-}) => {
+export const EditBook = () => {
     //TODO with useState
-
+    const { onBookEditSubmit } = useContext(BookContext)
     const { bookId } = useParams();
     const bookService = useService(bookServiceFactory);
     const { values, changeHandler, onSubmit, changeValues } = useForm({
