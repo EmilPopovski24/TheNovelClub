@@ -50,6 +50,5 @@ export const AddBook = () => {
 
         </form>
         </>
-        
     )
 }
