@@ -17,7 +17,7 @@ export const EditBook = () => {
         published: '',
         genre: '',
         coverUrl:'',
-        description: ''
+        description: '',
     }, onBookEditSubmit);
 
     useEffect(() => {
