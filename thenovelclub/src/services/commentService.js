@@ -15,6 +15,3 @@ export const getAll = async (bookId) => {
         const comments = Object.values(result);
         return comments
 };
-
-
-
