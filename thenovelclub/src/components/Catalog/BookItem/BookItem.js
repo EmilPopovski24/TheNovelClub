@@ -21,9 +21,9 @@ export const BookItem = ({
                     <h3>Published: {published}</h3> 
                 </div>
             </div>
-            {/* <div className='more-info'> */}
+            <div className='more-info'>
                 <button className="info-button"><Link to={`/catalog/${_id}`}> More Info</Link></button>
-            {/* </div> */}
+            </div>
        </div>
         </>
     )
