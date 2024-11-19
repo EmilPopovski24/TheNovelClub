@@ -5,7 +5,7 @@ import { bookServiceFactory } from "../services/bookService"
 export const BookContext = createContext();
 
 export const BookProvider = ({
-    children
+    children,
 }) => {
 
     const bookService = bookServiceFactory();
